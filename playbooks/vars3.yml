@@ -1,0 +1,9 @@
+---
+ - hosts: webservers
+   name: This playbook will run on webservers
+
+   tasks:
+    - name: To uninstall a package called {{ tool }}
+      yum:
+        name: "{{ tool }}"
+        state: installed

@@ -1,0 +1,11 @@
+---
+ - hosts: webservers
+   name: This playbook will run on webservers
+   vars_files:
+     - myvars.yml
+
+   tasks:
+    - name: To uninstall a package called {{ mytool }}
+      yum:
+        name: "{{ mytool }}"
+        state: installed

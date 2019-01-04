@@ -1,0 +1,20 @@
+---
+ - hosts: webservers
+   name: This playbook will run on webservers
+   vars:
+     mytools: ['vim', 'unzip', 'wget']
+     myfiles: ['file1.txt', 'file2.txt', 'file3.txt']
+
+   tasks:
+    - name: To uninstall list of packages
+      yum:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - "{{ mytools }}"
+
+    - file:
+        path: /opt/{{ item }}
+        state: absent
+      with_items:
+        - "{{ myfiles }}"

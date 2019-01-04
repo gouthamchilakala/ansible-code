@@ -1,0 +1,28 @@
+# First comment
+---
+#This is my first ansible playbook
+
+# <HEADER SECTION>
+
+ - hosts: webservers
+   name: This playbook will create file helloworld.html
+
+
+# <TASK SECTION>
+
+   tasks:
+    - name: To create a helloworld.html in remote servers
+      file:
+        path: /opt/helloworld.html
+        state: file
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: To create a dir named devops in remote servers
+      file:
+        path: /opt/devops
+        state: directory
+        owner: root
+        group: root
+        mode: 0644       

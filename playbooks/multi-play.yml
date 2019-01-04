@@ -1,0 +1,22 @@
+---
+ - hosts: webservers
+   name: This playbook will run on webservers
+
+   tasks:
+    - name: To copy a file
+      copy:
+        src: /opt/inventory.txt
+        dest: /opt/
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes
+
+ - hosts: database
+   name: This playbook will run on db servers
+
+   tasks:
+    - name: To install a package
+      yum:
+        name: wget
+        state: installed
