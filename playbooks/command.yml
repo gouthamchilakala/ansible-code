@@ -1,0 +1,16 @@
+---
+ - hosts: webservers
+   name: This playbook will run on webservers
+   vars:
+     tool: wget
+
+   tasks:
+    - name: To uninstall a package called {{ tool }}
+      yum:
+        name: "{{ tool }}"
+        state: absent
+
+    - name: to create a folder in remote server
+      command: mkdir -p /opt/abc
+      args:
+        creates: /opt/abc

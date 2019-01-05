@@ -1,0 +1,11 @@
+---
+ - hosts: webservers
+   name: This playbook will print the vairable value
+   vars:
+     value1: ansible
+   gather_facts: true
+
+   tasks:
+    - name: To rpint the value fo the value1 var
+      debug:
+        var: value1

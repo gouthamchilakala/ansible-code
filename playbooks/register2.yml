@@ -1,0 +1,20 @@
+---
+ - hosts: webservers
+   name: This playbook will print the vairable value
+   vars:
+     value1: ansible
+   gather_facts: true
+
+   tasks:
+    - name: To collect the output of the task
+      command: cat /opt/abc.txt
+      register: outvar
+
+    - debug:
+        var: outvar.stdout
+
+    - name: To rpint the value fo the value1 var
+      file:
+        path: /opt/sucess.txt
+        state: touch
+      when: outvar.stdout == "10"

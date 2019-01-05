@@ -1,0 +1,18 @@
+---
+ - hosts: webservers
+   name: This playbook will print the vairable value
+   vars:
+     value1: ansible
+   gather_facts: true
+
+   tasks:
+    - name: To collect the output of the task
+      file:
+        path: /opt/abc.txt
+        state: touch
+      register: outvar
+
+
+    - name: To rpint the value fo the value1 var
+      debug:
+        var: outvar

@@ -1,0 +1,11 @@
+---
+ - hosts: webservers
+   name: This playbook will print the facts
+   gather_facts: true
+
+   tasks:
+    - name: To rpint the value fo the value1 var
+      yum:
+        name: httpd
+        state: installed
+      when: (ansible_distribution == "RedHat" and ansible_architecture == "x86_64")

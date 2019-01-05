@@ -1,0 +1,21 @@
+---
+ - hosts: webservers
+   name: This playbook will print the facts
+   gather_facts: true
+
+   tasks:
+    - name: To rpint the value fo the value1 var
+      debug:
+        var: ansible_distribution
+
+    - name: To rpint the value fo the value1 var
+      debug:
+        var: ansible_architecture 
+
+    - name: To rpint the value fo the value1 var
+      debug:
+        var: ansible_memfree_mb
+
+    - name: To rpint the value fo the value1 var
+      debug:
+        var: ansible_processor_cores
