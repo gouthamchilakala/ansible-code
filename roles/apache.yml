@@ -1,0 +1,7 @@
+---
+
+ - name: To call the ansible role and execute it
+   hosts: webservers
+
+   roles:
+    - apache

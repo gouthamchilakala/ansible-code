@@ -1,0 +1,13 @@
+---
+
+ - name: To update the apache config file
+   copy:
+     src: files/httpd.conf
+     dest: /opt/httpd.conf
+   notify: restart apache
+
+ - name: To deploy code to apache
+   copy:
+     src: files/index.html
+     dest: /var/www/html/index.html
+

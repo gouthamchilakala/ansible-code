@@ -1,0 +1,28 @@
+---
+
+ - name: to create a group called apacheadm
+   group:
+     name: apacheadm
+     state: present
+
+ - name: To install a linux user named apacheadm
+   user:
+     name: apacheadm
+     groups: apacheadm
+
+ - name: to create a log directory
+   file:
+     path: /opt/apache_logs
+     state: directory
+     owner: apacheadm
+     group: apacheadm
+     mode: 644
+
+ - name: To create a default log file
+   file:
+     path: /opt/apache_logs/apache.log
+     state: touch
+     owner: apacheadm
+     group: apacheadm
+     mode: 644
+
